@@ -1,255 +1,292 @@
 @import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
 
+/* Global Styles */
 * {
-   margin: 0;
-   padding: 0;
-   box-sizing: border-box;
-   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
 }
 
 html,
 body {
-   width: 100%;
-   height: 100%;
+  width: 100%;
+  height: 100%;
+  background-color: #333333; /* Dark background */
+  color: #ffcc00; /* Yellow text */
 }
 
+/* Links */
 a {
-   color: black;
-   text-decoration: none;
-   margin-right: 20px;
+  color: #333333; /* Black links */
+  text-decoration: none;
+  margin-right: 20px;
+  transition: color 0.3s ease;
 }
 
+a:hover {
+  color: #ffeb3b; /* Lighter yellow on hover */
+}
+
+/* Main App Container */
 .App {
-   display: flex;
-   flex-direction: column;
-   min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: #1c1c1c; /* Darker background */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-.content {
-   flex: 1;
+/* Navbar Styling */
+.navbar-custom {
+  background-color: #ffcc00; /* Yellow background */
+  color: #333333; /* Dark text color */
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
+.navbar-custom h2 {
+  color: #333333; /* Black text for the logo */
+  font-weight: bold;
+  padding: 5px 10px;
+}
+
+.navbar-custom a {
+  color: #333333; /* Black link color */
+  margin-right: 20px;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+.navbar-custom a:hover {
+  color: #ffeb3b; /* Lighter yellow on hover */
+}
+
+/* Home Body Carousel */
 .home-body {
-   height: 81.5vh;
-   overflow: hidden;
+  height: 81.5vh;
+  overflow: hidden;
+  background: linear-gradient(135deg, #ffeb3b, #fbc02d); /* Yellow gradient */
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
 }
 
 .home-body .carousel {
-   max-height: 100%;
+  max-height: 100%;
 }
 
 .home-body .carousel .carousel-item {
-   height: 100%;
+  height: 100%;
 }
 
 .home-body .carousel .carousel-item img {
-   width: 100%;
-   height: 100%;
-   object-fit: contain;
-   background-size: cover;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 8px;
 }
 
-.property-content {
-   display: flex;
-   flex-wrap: wrap;
-   justify-content: center;
-}
-
+/* Main Content Heading */
 .content-home {
-   position: absolute;
-   top: 30%;
-   left: 5%;
+  position: absolute;
+  top: 30%;
+  left: 5%;
+  color: #ffcc00; /* Yellow color for content */
 }
 
 .content-home p {
-   font-size: 42px;
-   font-weight: 800;
-   color: rgb(102, 62, 9);
+  font-size: 48px;
+  font-weight: 800;
+  color: #ffcc00;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
 }
 
+/* Filter Container */
 .filter-container {
-   width: 100%;
-   height: 10vh;
-   display: flex;
-   align-items: center;
-   justify-content: center;
-   margin-bottom: 10px;
+  width: 100%;
+  height: 10vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 10px;
+  background-color: #ffcc00; /* Yellow background for filter */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .filter-container input,
 select {
-   border: 1px solid black;
-   padding: 10px;
-   margin: 10px;
-   border-radius: 5px;
+  border: 1px solid #ffcc00; /* Yellow border */
+  padding: 10px;
+  margin: 10px;
+  border-radius: 5px;
+  background-color: #555555; /* Dark input background */
+  color: #f5f5f5;
 }
 
-.column {
-   width: 100%;
-   display: flex;
-   flex-wrap: wrap;
-}
-
+/* Cards */
 .card {
-   margin-right: 20px;
-   margin-bottom: 15px;
+  margin-right: 20px;
+  margin-bottom: 15px;
+  border: none;
+  border-radius: 8px;
+  box-shadow: 0 8px 20px rgba(255, 204, 0, 0.2); /* Yellow box-shadow */
+  background-color: #ffcc00; /* Yellow card background */
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 24px rgba(255, 204, 0, 0.3); /* Brighter yellow on hover */
 }
 
 .card .card-body .card-title img {
-   width: 100%;
-   height: 150px;
+  width: 100%;
+  height: 150px;
+  border-radius: 5px;
 }
 
+/* Chat Container */
 .chat-container {
-   display: flex;
-   flex-direction: column;
-   height: 100%;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background-color: #424242; /* Dark chat background */
+  border-radius: 8px;
+  padding: 15px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 .chat-container h1 {
-   font-size: 22px;
-   text-align: center;
-   margin-bottom: 20px;
+  font-size: 24px;
+  text-align: center;
+  margin-bottom: 20px;
+  color: #ffcc00; /* Yellow text */
 }
-
 
 .message-window {
-   /* flex: 1; */
-   overflow-x: auto;
-   padding: 10px;
-   width: 100%;
-   max-height: 200px;
-   height: 100px;
-   border: 1px solid lightgray;
-   border-radius: 5px;
+  overflow-x: auto;
+  padding: 10px;
+  width: 100%;
+  max-height: 200px;
+  height: 100px;
+  border: 1px solid #ffcc00; /* Yellow border */
+  border-radius: 5px;
+  background-color: #2c2c2c; /* Dark background */
 }
 
+/* Messages */
 .message {
-   background-color: #f5f5f5;
-   padding: 5px;
-   margin-bottom: 10px;
+  background: linear-gradient(135deg, #ffcc00, #fbc02d); /* Yellow gradient */
+  padding: 8px;
+  margin-bottom: 10px;
+  border-radius: 8px;
+  color: #333333;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
+/* Input Container */
 .input-container {
-   display: flex;
-   align-items: center;
-   padding: 12px;
+  display: flex;
+  align-items: center;
+  padding: 12px;
 }
 
 .input-container textarea {
-   width: 25px;
-   flex: 1;
-   padding: 5px;
-   margin-right: 5px;
-   border: none;
-   border-radius: 5px;
-   background-color: rgb(250, 247, 247);
+  width: 100%;
+  flex: 1;
+  padding: 8px;
+  margin-right: 10px;
+  border: 1px solid #ffcc00; /* Yellow border */
+  border-radius: 8px;
+  background-color: #555555; /* Dark background */
+  color: #f5f5f5;
 }
 
 .input-container button {
-   padding: 5px 10px;
-   color: white;
-   font-size: 12px;
-   border: none;
-   width: 40px;
-   height: 40px;
-   border-radius: 50%;
+  padding: 10px 15px;
+  color: white;
+  font-size: 12px;
+  border: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #ffcc00; /* Yellow button */
+  transition: background-color 0.3s ease;
 }
 
-@media screen and (max-width: 480px) {
-   .chat-container {
-      height: auto;
-   }
+.input-container button:hover {
+  background-color: #fbc02d; /* Lighter yellow on hover */
 }
 
+/* Footer Styling */
+.footer-custom {
+  background-color: #333333; /* Dark background */
+  color: #ffcc00; /* Yellow text */
+  padding: 20px 0;
+  text-align: center;
+}
 
-/* {allProperties.some((app) => (app.jobInfo._id === property._id) && (app.status === 'applied' || app.status === 'rejected' || app.status === 'selected')) ? (
-                              <p style={{ float: 'right', color: 'grey' }} variant="warning" disabled>
-                                 Already Applied
-                              </p>
-                           ) : userLoggedIn ? (
-                              <Button
-                                 style={{ float: 'right' }}
-                                 variant="outline-warning"
-                                 onClick={() => setSelectedJobId(property._id)}
-                              >
-                                 Apply Now
-                              </Button>
-                           ) : (
-                              <Button style={{ float: 'right' }} variant="outline-warning">
-                                 <Link to={'/login'}>Buy Now</Link>
-                              </Button>
-                           )} */
-/* <Modal
-                              centered
-                              open={selectedJobId === property._id}
-                              onOk={() => setSelectedJobId(null)}
-                              onCancel={() => setSelectedJobId(null)}
-                              width={1000}
-                           >
-                              <Form onFinish={() => handleSubmit(property._id)} className='m-3'>
-                                 <h3>Job Description and Skills</h3><hr />
-                                 <div className="d-flex flex-column mt-0">
-                                    <h5>Descrption:</h5><p>{property.jobDescription}</p><br />
-                                    <h5>Skills:</h5><p>{property.skills}</p><br />
-                                 </div>
-                                 <hr style={{ height: 3, background: 'black' }} />
-                                 <h3>Enter Your Details for the Application</h3><hr />
-                                 <h5>Personal Details:</h5>
-                                 <Row gutter={20}>
-                                    <Col xs={24} md={12} lg={8}>
-                                       <Form.Item label="Full Name" required>
-                                          <Input name='name' value={details.name} onChange={handleChange} placeholder='Enter name' />
-                                       </Form.Item>
-                                    </Col>
-                                    <Col xs={24} md={12} lg={8}>
-                                       <Form.Item label="Phone" required>
-                                          <Input name='phone' value={details.phone} onChange={handleChange} type='number' placeholder='Your phone' />
-                                       </Form.Item>
-                                    </Col>
-                                    <Col xs={24} md={12} lg={8}>
-                                       <Form.Item label="Email" required>
-                                          <Input name='email' value={details.email} onChange={handleChange} type='email' placeholder='Your email' />
-                                       </Form.Item>
-                                    </Col>
-                                    <Col xs={24} md={12} lg={8}>
-                                       <Form.Item label="Address" required>
-                                          <Input name='address' value={details.address} onChange={handleChange} type='text' placeholder='Your address' />
-                                       </Form.Item>
-                                    </Col>
-                                 </Row>
-                                 <h5>Highest Educational Details:</h5>
-                                 <Row gutter={20}>
-                                    <Col xs={24} md={12} lg={8}>
-                                       <Form.Item label="University Name" required>
-                                          <Input name='universityName' value={details.universityName} onChange={handleChange} type='text' placeholder='Your university name' />
-                                       </Form.Item>
-                                    </Col>
-                                    <Col xs={24} md={12} lg={8}>
-                                       <Form.Item label="Highest Degree" required>
-                                          <Input name='degree' value={details.degree} onChange={handleChange} type='text' placeholder='Your highest degree' />
-                                       </Form.Item>
-                                    </Col>
-                                    <Col xs={24} md={12} lg={8}>
-                                       <Form.Item label="Experience" required>
-                                          <Input name='experience' value={details.experience} onChange={handleChange} type='number' placeholder='Your experience' />
-                                       </Form.Item>
-                                    </Col>
-                                 </Row>
-                                 <h5>Resume(only in Pdf Format):</h5>
-                                 <Row gutter={20}>
-                                    <Col xs={24} md={12} lg={8}>
-                                       <Form.Item label="Resume" required>
-                                          <Input name='resume' accept="application/pdf" onChange={handleDocumentChange} type='file' />
-                                       </Form.Item>
-                                    </Col>
-                                    <br />
-                                    <Form.Item>
-                                       <Button type='submit' variant='outline-warning'>
-                                          Submit
-                                       </Button>
-                                    </Form.Item>
-                                 </Row>
-                              </Form>
-                           </Modal> */
+.footer-text {
+  font-size: 14px;
+}
+
+.table-custom {
+  width: 100%;
+  border-collapse: collapse;
+  border: 2px solid #000; /* Black border for the table */
+  background-color: #fff; /* White background for the table */
+}
+
+/* Table Header Styling */
+.table-custom th {
+  background-color: #ffcc00; /* Yellow background for header */
+  color: #000; /* Black text for header */
+  padding: 10px 15px;
+  text-align: center;
+  font-weight: bold;
+}
+
+/* Table Body Styling */
+.table-custom td {
+  background-color: #ffeb3b; /* Yellow background for table rows */
+  color: #000; /* Black text for table rows */
+  padding: 10px 15px;
+  text-align: center;
+  border: 1px solid #000; /* Black border for each cell */
+}
+
+/* Table Row Hover Effect */
+.table-custom tr:hover {
+  background-color: #fbc02d; /* Lighter yellow on hover */
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+  .navbar-custom .navbar-links {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .filter-container input,
+  .filter-container select {
+    width: 100%;
+    margin: 10px 0;
+  }
+
+  .content-home p {
+    font-size: 30px;
+  }
+
+  .card {
+    width: 100%;
+    margin-right: 0;
+  }
+
+  .input-container textarea {
+    width: 100%;
+  }
+}

@@ -52,12 +52,13 @@ const ForgotPassword = () => {
       }
     }
   };
+
   return (
     <>
-      <Navbar expand="lg" className="bg-body-tertiary">
+      <Navbar expand="lg" className="navbar-custom">
         <Container fluid>
           <Navbar.Brand>
-            <Link to={"/"}>RentEase</Link>
+            <Link to={"/"}>Neel Rentals</Link>
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="navbarScroll" />
           <Navbar.Collapse id="navbarScroll">
@@ -82,12 +83,19 @@ const ForgotPassword = () => {
             display: "flex",
             flexDirection: "column",
             alignItems: "center",
+            backgroundColor: "#333333", // Dark background to match the page
+            padding: "20px",
+            borderRadius: "8px",
           }}
         >
           <Avatar sx={{ m: 1, bgcolor: "secondary.main" }}>
             <LockOutlinedIcon />
           </Avatar>
-          <Typography component="h1" variant="h5">
+          <Typography
+            component="h1"
+            variant="h5"
+            style={{ color: "#ffcc00" }} // Yellow text color
+          >
             Forgot Password?
           </Typography>
           <Box
@@ -106,6 +114,16 @@ const ForgotPassword = () => {
               onChange={handleChange}
               autoComplete="email"
               autoFocus
+              InputProps={{
+                style: {
+                  backgroundColor: "#333333", // Background color of input fields
+                  borderColor: "#ffcc00", // Border color
+                  color: "#ffcc00", // Text color inside the input box
+                },
+              }}
+              InputLabelProps={{
+                style: { color: "#ffcc00" }, // Label text color
+              }}
             />
             <TextField
               margin="normal"
@@ -117,6 +135,16 @@ const ForgotPassword = () => {
               type="password"
               id="password"
               autoComplete="current-password"
+              InputProps={{
+                style: {
+                  backgroundColor: "#333333", // Background color of input fields
+                  borderColor: "#ffcc00", // Border color
+                  color: "#ffcc00", // Text color inside the input box
+                },
+              }}
+              InputLabelProps={{
+                style: { color: "#ffcc00" }, // Label text color
+              }}
             />
             <TextField
               margin="normal"
@@ -128,13 +156,27 @@ const ForgotPassword = () => {
               type="password"
               id="confirmPassword"
               autoComplete="current-password"
+              InputProps={{
+                style: {
+                  backgroundColor: "#333333", // Background color of input fields
+                  borderColor: "#ffcc00", // Border color
+                  color: "#ffcc00", // Text color inside the input box
+                },
+              }}
+              InputLabelProps={{
+                style: { color: "#ffcc00" }, // Label text color
+              }}
             />
             <Box mt={2}>
               <Button
                 type="submit"
                 variant="contained"
                 sx={{ mt: 3, mb: 2 }}
-                style={{ width: "200px" }}
+                style={{
+                  width: "200px",
+                  backgroundColor: "#ffcc00", // Button background color
+                  color: "#333333", // Button text color
+                }}
               >
                 Change Password
               </Button>
@@ -143,7 +185,11 @@ const ForgotPassword = () => {
               <Grid item></Grid>
               <Grid item>
                 Don't have an account?
-                <Link style={{ color: "red" }} to={"/register"} variant="body2">
+                <Link
+                  style={{ color: "#ffcc00" }}
+                  to={"/register"}
+                  variant="body2"
+                >
                   {" Sign Up"}
                 </Link>
               </Grid>

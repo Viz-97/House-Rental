@@ -3,24 +3,19 @@ import Avatar from "@mui/material/Avatar";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import Grid from "@mui/material/Grid";
-import InputLabel from "@mui/material/InputLabel";
-import MenuItem from "@mui/material/MenuItem";
-import Select from "@mui/material/Select";
 import TextField from "@mui/material/TextField";
 import Typography from "@mui/material/Typography";
-import { message } from "antd";
 import axios from "axios";
 import React, { useState } from "react";
-import { Container, Nav } from "react-bootstrap";
-import Navbar from "react-bootstrap/Navbar";
+import { Container, Nav, Navbar } from "react-bootstrap";
 import { Link, useNavigate } from "react-router-dom";
-const Register = () => {
+
+const ForgotPassword = () => {
   const navigate = useNavigate();
   const [data, setData] = useState({
-    name: "",
     email: "",
     password: "",
-    type: "",
+    confirmPassword: "",
   });
 
   const handleChange = (e) => {
@@ -28,33 +23,42 @@ const Register = () => {
     setData({ ...data, [name]: value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    if (!data?.name || !data?.email || !data?.password || !data?.type)
-      return alert("Please fill all fields");
-    else {
-      axios
-        .post("http://localhost:8000/api/user/register", data)
-        .then((response) => {
-          if (response.data.success) {
-            message.success(response.data.message);
-            navigate("/login");
-          } else {
-            message.error(response.data.message);
-          }
-        })
-        .catch((error) => {
-          console.log("Error", error);
-        });
+    if (
+      data.email === "" ||
+      data.password === "" ||
+      data.confirmPassword === ""
+    ) {
+      alert("Please fill all fields");
+    } else {
+      if (data.password === data.confirmPassword) {
+        await axios
+          .post("http://localhost:8000/api/user/forgotpassword", data)
+          .then((res) => {
+            if (res.data.success) {
+              alert("Your password has been changed!");
+              navigate("/login");
+            } else {
+              alert(res.data.message);
+            }
+          })
+          .catch((err) => {
+            if (err.response && err.response.status === 401) {
+              alert("User doesn't exist");
+            }
+            navigate("/register");
+          });
+      }
     }
   };
 
   return (
     <>
-      <Navbar expand="lg" className="bg-body-tertiary">
+      <Navbar expand="lg" className="navbar-custom">
         <Container fluid>
           <Navbar.Brand>
-            <h2>RentEase</h2>
+            <Link to={"/"}>Neel Rentals</Link>
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="navbarScroll" />
           <Navbar.Collapse id="navbarScroll">
@@ -72,34 +76,34 @@ const Register = () => {
         </Container>
       </Navbar>
 
-      <Container component="main">
+      <Container component="main" maxWidth="xs">
         <Box
           sx={{
             marginTop: 8,
-            marginBottom: 4,
             display: "flex",
             flexDirection: "column",
             alignItems: "center",
+            backgroundColor: "#333333", // Dark background to match the page
+            padding: "20px",
+            borderRadius: "8px",
           }}
         >
-          <Avatar sx={{ bgcolor: "secondary.main" }}>
+          <Avatar sx={{ m: 1, bgcolor: "secondary.main" }}>
             <LockOutlinedIcon />
           </Avatar>
-          <Typography component="h1" variant="h5">
-            Sign up
+          <Typography
+            component="h1"
+            variant="h5"
+            style={{ color: "#ffcc00" }} // Yellow text color
+          >
+            Forgot Password?
           </Typography>
-          <Box component="form" onSubmit={handleSubmit} noValidate>
-            <TextField
-              margin="normal"
-              fullWidth
-              id="name"
-              label="Renter Full Name/Owner Name"
-              name="name"
-              value={data.name}
-              onChange={handleChange}
-              autoComplete="name"
-              autoFocus
-            />
+          <Box
+            component="form"
+            onSubmit={handleSubmit}
+            noValidate
+            sx={{ mt: 1 }}
+          >
             <TextField
               margin="normal"
               fullWidth
@@ -110,6 +114,16 @@ const Register = () => {
               onChange={handleChange}
               autoComplete="email"
               autoFocus
+              InputProps={{
+                style: {
+                  backgroundColor: "#333333", // Background color of input fields
+                  borderColor: "#ffcc00", // Border color
+                  color: "#ffcc00", // Text color inside the input box
+                },
+              }}
+              InputLabelProps={{
+                style: { color: "#ffcc00" }, // Label text color
+              }}
             />
             <TextField
               margin="normal"
@@ -117,42 +131,70 @@ const Register = () => {
               name="password"
               value={data.password}
               onChange={handleChange}
-              label="Password"
+              label="New Password"
               type="password"
               id="password"
               autoComplete="current-password"
+              InputProps={{
+                style: {
+                  backgroundColor: "#333333", // Background color of input fields
+                  borderColor: "#ffcc00", // Border color
+                  color: "#ffcc00", // Text color inside the input box
+                },
+              }}
+              InputLabelProps={{
+                style: { color: "#ffcc00" }, // Label text color
+              }}
             />
-            <InputLabel id="demo-simple-select-label">User Type</InputLabel>
-            <Select
-              labelId="demo-simple-select-label"
-              id="demo-simple-select"
-              name="type"
-              value={data.type}
-              label="type"
-              defaultValue="Select User"
+            <TextField
+              margin="normal"
+              fullWidth
+              name="confirmPassword"
+              value={data.confirmPassword}
               onChange={handleChange}
-              style={{ width: "200px" }}
-            >
-              <MenuItem value={"Select User"} disabled>
-                Select User
-              </MenuItem>
-              <MenuItem value={"Renter"}>Renter</MenuItem>
-              <MenuItem value={"Owner"}>Owner</MenuItem>
-            </Select>
+              label="Confirm Password"
+              type="password"
+              id="confirmPassword"
+              autoComplete="current-password"
+              InputProps={{
+                style: {
+                  backgroundColor: "#333333", // Background color of input fields
+                  borderColor: "#ffcc00", // Border color
+                  color: "#ffcc00", // Text color inside the input box
+                },
+              }}
+              InputLabelProps={{
+                style: { color: "#ffcc00" }, // Label text color
+              }}
+            />
             <Box mt={2}>
               <Button
                 type="submit"
                 variant="contained"
-                style={{ width: "200px" }}
+                sx={{ mt: 3, mb: 2 }}
+                style={{
+                  width: "100%", // Full width like other buttons
+                  backgroundColor: "#ffcc00", // Yellow background color
+                  color: "#333333", // Dark text color
+                  padding: "10px", // Similar padding
+                  borderRadius: "5px", // Consistent border radius
+                  fontSize: "16px", // Font size for consistency
+                  fontWeight: "bold", // Bold text like other buttons
+                }}
               >
-                Sign Up
+                Change Password
               </Button>
             </Box>
             <Grid container>
+              <Grid item></Grid>
               <Grid item>
-                Have an account?
-                <Link style={{ color: "blue" }} to={"/login"} variant="body2">
-                  {" Sign In"}
+                Don't have an account?
+                <Link
+                  style={{ color: "#ffcc00" }}
+                  to={"/register"}
+                  variant="body2"
+                >
+                  {" Sign Up"}
                 </Link>
               </Grid>
             </Grid>
@@ -163,4 +205,4 @@ const Register = () => {
   );
 };
 
-export default Register;
+export default ForgotPassword;

@@ -80,9 +80,10 @@ function AddProperty() {
   return (
     <Container
       style={{
-        border: "1px solid lightblue",
+        border: "1px solid yellow", // Set border color to yellow
         borderRadius: "5px",
         padding: "30px",
+        backgroundColor: "#333333", // Matching background color
       }}
     >
       <Form onSubmit={handleSubmit}>
@@ -94,6 +95,11 @@ function AddProperty() {
                 name="propertyType"
                 value={propertyDetails.propertyType}
                 onChange={handleChange}
+                style={{
+                  backgroundColor: "yellow", // Background color set to yellow
+                  borderColor: "black", // Black border
+                  color: "#333333", // Deep dark text color
+                }}
               >
                 <option value="choose.." disabled>
                   Choose...
@@ -111,6 +117,11 @@ function AddProperty() {
                 name="propertyAdType"
                 value={propertyDetails.propertyAdType}
                 onChange={handleChange}
+                style={{
+                  backgroundColor: "yellow", // Background color set to yellow
+                  borderColor: "black", // Black border
+                  color: "#333333", // Deep dark text color
+                }}
               >
                 <option value="choose.." disabled>
                   Choose...
@@ -131,6 +142,11 @@ function AddProperty() {
                 name="propertyAddress"
                 value={propertyDetails.propertyAddress}
                 onChange={handleChange}
+                style={{
+                  backgroundColor: "yellow", // Background color set to yellow
+                  borderColor: "black", // Black border
+                  color: "#333333", // Deep dark text color
+                }}
               />
             </InputGroup>
           </Form.Group>
@@ -146,6 +162,11 @@ function AddProperty() {
               name="images"
               multiple
               onChange={handleImageChange}
+              style={{
+                backgroundColor: "yellow", // Background color set to yellow
+                borderColor: "black", // Black border
+                color: "#333333", // Deep dark text color
+              }}
             />
           </Form.Group>
           <Form.Group as={Col} md="3">
@@ -157,6 +178,11 @@ function AddProperty() {
               name="ownerContact"
               value={propertyDetails.ownerContact}
               onChange={handleChange}
+              style={{
+                backgroundColor: "yellow", // Background color set to yellow
+                borderColor: "black", // Black border
+                color: "#333333", // Deep dark text color
+              }}
             />
           </Form.Group>
           <Form.Group as={Col} md="3">
@@ -168,18 +194,32 @@ function AddProperty() {
               name="propertyAmt"
               value={propertyDetails.propertyAmt}
               onChange={handleChange}
+              style={{
+                backgroundColor: "yellow", // Background color set to yellow
+                borderColor: "black", // Black border
+                color: "#333333", // Deep dark text color
+              }}
             />
           </Form.Group>
           <FloatingLabel
             label="Additional details for the Property"
             className="mt-4"
+            style={{
+              color: "#333333", // Deep dark text color for the label
+            }}
           >
             <Form.Control
               name="additionalInfo"
               value={propertyDetails.additionalInfo}
               onChange={handleChange}
               as="textarea"
-              placeholder="Leave a comment here"
+              placeholder="Additional details for the Property" // Default placeholder text
+              style={{
+                backgroundColor: "yellow", // Background color set to yellow
+                borderColor: "black", // Black border
+                color: "#333333", // Deep dark text color for input text
+                padding: "10px", // Optional padding for better UX
+              }}
             />
           </FloatingLabel>
         </Row>

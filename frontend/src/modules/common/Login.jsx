@@ -80,10 +80,10 @@ const Login = () => {
 
   return (
     <>
-      <Navbar expand="lg" className="bg-body-tertiary">
+      <Navbar expand="lg" className="navbar-custom">
         <Container fluid>
           <Navbar.Brand>
-            <h2>RentEase</h2>
+            <h2>Neel Rentals</h2>
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="navbarScroll" />
           <Navbar.Collapse id="navbarScroll">
@@ -128,6 +128,25 @@ const Login = () => {
               onChange={handleChange}
               autoComplete="email"
               autoFocus
+              InputProps={{
+                style: { color: "#ffcc00" }, // Text color inside the box
+              }}
+              InputLabelProps={{
+                style: { color: "#ffcc00" }, // Label color
+              }}
+              sx={{
+                "& .MuiOutlinedInput-root": {
+                  "& fieldset": {
+                    borderColor: "#ffcc00", // Default border color
+                  },
+                  "&:hover fieldset": {
+                    borderColor: "#ffcc00", // Border color on hover
+                  },
+                  "&.Mui-focused fieldset": {
+                    borderColor: "#ffcc00", // Border color when focused
+                  },
+                },
+              }}
             />
             <TextField
               margin="normal"
@@ -139,6 +158,25 @@ const Login = () => {
               type="password"
               id="password"
               autoComplete="current-password"
+              InputProps={{
+                style: { color: "#ffcc00" }, // Text color inside the box
+              }}
+              InputLabelProps={{
+                style: { color: "#ffcc00" }, // Label color
+              }}
+              sx={{
+                "& .MuiOutlinedInput-root": {
+                  "& fieldset": {
+                    borderColor: "#ffcc00", // Default border color
+                  },
+                  "&:hover fieldset": {
+                    borderColor: "#ffcc00", // Border color on hover
+                  },
+                  "&.Mui-focused fieldset": {
+                    borderColor: "#ffcc00", // Border color when focused
+                  },
+                },
+              }}
             />
             <Box mt={2}>
               <Button

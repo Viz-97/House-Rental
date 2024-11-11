@@ -38,15 +38,19 @@ const AllBookings = () => {
   return (
     <div>
       <TableContainer component={Paper}>
-        <Table sx={{ minWidth: 650 }} aria-label="simple table">
+        <Table
+          className="table-custom"
+          sx={{ minWidth: 650 }}
+          aria-label="simple table"
+        >
           <TableHead>
             <TableRow>
               <TableCell>Booking ID</TableCell>
               <TableCell align="center">Owner ID</TableCell>
               <TableCell align="center">Property ID</TableCell>
-              <TableCell align="center">Tenent ID</TableCell>
-              <TableCell align="center">Tenent Name</TableCell>
-              <TableCell align="center">Tenent Contact</TableCell>
+              <TableCell align="center">Tenant ID</TableCell>
+              <TableCell align="center">Tenant Name</TableCell>
+              <TableCell align="center">Tenant Contact</TableCell>
               <TableCell align="center">Booking Status</TableCell>
             </TableRow>
           </TableHead>
